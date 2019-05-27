@@ -1,0 +1,54 @@
+server:
+  port: 8090
+
+spring:
+  data:
+    mongodb:
+      database: bot-test
+      host: 192.168.99.100
+      port: 27017    
+      
+app:
+  intervaloVerificacao: 40000
+  horaDesligamento: 21
+  pathWebHook: https://hooks.slack.com/services/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
+  qtdVezesDelayMsgChannel: 15
+  webconfig:
+   timeout: 30000  
+ 
+      
+management:  
+  server.ssl.enabled: false
+  info:
+    build.enabled: true
+    defaults.enabled: true
+  endpoints:
+    web.base-path: /actuator
+    jmx.exposure.include: "*"
+  endpoint:
+    health.enabled: true
+    metrics.enabled: true
+    heapdump.enabled: true
+  health:
+    defaults.enabled: true
+    diskspace.enabled: true
+    jms.enabled: true
+    mongo.enabled: true
+    rabbit.enabled: true
+    redis.enabled: false 
+      
+      
+info:
+  app:
+    name: @name@
+    description: @project.description@
+  build:
+    groupId: @project.groupId@
+    artifact: @project.artifactId@
+    name: @project.name@
+    version: @project.version@
+  env:
+    java:
+      vendor: ${java.specification.vendor}
+      vm-name: ${java.vm.name}
+      runtime-version: ${java.runtime.version}
